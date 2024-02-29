@@ -38,8 +38,8 @@ public class DatabaseQueryService {
 
     private List<MaxProjectCountClient> executeMaxProjectCountClientQuery(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sqlQuery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
 
             return parseMaxProjectCountClients(resultSet);
         } catch (SQLException e) {
@@ -50,8 +50,8 @@ public class DatabaseQueryService {
 
     private List<MaxSalaryWorker> executeMaxSalaryWorkerQuery(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = statement.executeQuery(sqlQuery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
 
             return parseMaxSalaryWorker(resultSet);
         } catch (SQLException e) {
