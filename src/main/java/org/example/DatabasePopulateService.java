@@ -33,17 +33,17 @@ public class DatabasePopulateService {
     }
 
     private static void addSqlScriptToBatch(Connection connection, String sqlScript) throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement(sqlScript)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sqlScript)) {
             // Розділяємо SQL-скрипт на окремі запити
             String[] queries = sqlScript.split(";");
 
             // Виконуємо кожен окремий запит
             for (String query : queries) {
-                statement.addBatch(query.trim());
+                preparedStatement.addBatch(query.trim());
             }
 
             // Виконуємо всі пакетні запити
-            statement.executeBatch();
+            preparedStatement.executeBatch();
         }
     }
 }
