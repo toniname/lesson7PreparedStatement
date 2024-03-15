@@ -11,7 +11,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.h2database:h2:2.2.224'
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation 'mysql:mysql-connector-java:8.0.33'
     // SLF4J API
     implementation 'org.slf4j:slf4j-api:1.7.32'
     // Logback (SLF4J binding)

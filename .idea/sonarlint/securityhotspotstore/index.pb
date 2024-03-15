@@ -216,3 +216,15 @@ Q.idea/sonarlint/securityhotspotstore/e/d/ed67eb178d523a4b3f117dcbe0eda5196367ce
 Q.idea/sonarlint/securityhotspotstore/a/e/ae7cd77fed401e477a36e76d65c03291b7e1070d,5\a\5aec74f364a06f4b346212e6b8aceea821712ff3
 Å
 Q.idea/sonarlint/securityhotspotstore/a/e/ae9ddf453f55affea2d6b9e3973cac1eb2efb4e1,e\3\e36d3b35b0aa033dfcf067b2cd16117a306b1e80
+=
+lesson7PS.iml,f\c\fcd219d393a4c2052b580e40ec8f0a24ec28693b
+c
+3src/main/java/org/example/props/PropertyReader.java,7\f\7ff0d1a376cb1252f1ac191df7ce1803d4c6a927
+[
++src/main/java/org/example/PersonEntity.java,6\c\6c5e87c2216f42b0d35481798208ce60b3321730
+W
+'src/main/java/org/example/Projects.java,f\3\f3e98b028221aecf80b558db120d2ce424e715cb
+U
+%src/main/java/org/example/Client.java,c\a\ca008ce1ad5125494d92c1098a582d3287b5d915
+[
++src/main/java/org/example/ProjectsList.java,2\3\23c0a824f477537e81dda2b17d71b646ceb015cd

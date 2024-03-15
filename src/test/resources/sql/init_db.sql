@@ -1,16 +1,16 @@
 -- Створення таблиці "worker"
 CREATE TABLE worker (
                         ID INT PRIMARY KEY,
-                        NAME VARCHAR(1000) NOT NULL CHECK (LENGTH(NAME) >= 2 AND LENGTH(NAME) <= 1000),
+                        NAME NVARCHAR(1000) NOT NULL CHECK (LEN(NAME) >= 2 AND LEN(NAME) <= 1000),
                         BIRTHDAY DATE CHECK (YEAR(BIRTHDAY) > 1900),
-    LEVEL VARCHAR(20) NOT NULL,
+    LEVEL NVARCHAR(20) NOT NULL,
     SALARY INT CHECK (SALARY >= 100 AND SALARY <= 100000)
 );
 
 -- Створення таблиці "client"
 CREATE TABLE client (
                         ID INT PRIMARY KEY,
-                        NAME VARCHAR(1000) NOT NULL CHECK (LENGTH(NAME) >= 2 AND LENGTH(NAME) <= 1000)
+                        NAME NVARCHAR(1000) NOT NULL CHECK (LEN(NAME) >= 2 AND LEN(NAME) <= 1000)
 );
 
 -- Створення таблиці "project"

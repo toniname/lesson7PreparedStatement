@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 public final class Database {
 
-    private static final String URL = "jdbc:h2:mem:testDb"; // URL з'єднання з H2, можна змінити
+    private static final String URL = "jdbc:mysql.db.database"; // URL з'єднання з H2, можна змінити
     private static final String USER = "а1";
     private static final String PASSWORD = System.getenv("password");
 

@@ -2,15 +2,12 @@ package org.example;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 
 public class DatabaseInitService {
 
@@ -41,17 +38,22 @@ public class DatabaseInitService {
     }
 
     private static void executeSqlScript(Connection connection, String sqlScript) throws SQLException {
-        try (PreparedStatement preparedStatement = connection.prepareStatement(sqlScript)) {
-            // Розділяємо SQL-скрипт на окремі запити
-            String[] queries = sqlScript.split(";");
+        // Split the SQL script into separate queries
+        String[] queries = sqlScript.split(";");
 
-            // Виконуємо кожен окремий запит
+        try (PreparedStatement preparedStatement = connection.prepareStatement("")) {
+            // Execute each individual query
             for (String query : queries) {
-                preparedStatement.addBatch(query.trim());
-            }
+                // Trim the query and check if it's not empty
+                query = query.trim();
+                if (!query.isEmpty()) {
+                    // Set the SQL query for the prepared statement
+                    preparedStatement.setString(1, query);
 
-            // Виконуємо всі пакетні запити
-                preparedStatement.executeBatch();
+                    // Execute the query
+                    preparedStatement.execute();
+                }
+            }
         }
     }
 }
