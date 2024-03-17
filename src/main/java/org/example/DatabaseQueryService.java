@@ -31,6 +31,7 @@ public class DatabaseQueryService {
         String sqlQuery = readSqlScript("find_youngest_eldest_workers.sql");
         return executeYoungestEldestWorker(sqlQuery);
     }
+
     public List<PrintProjectPrices> findProjectPrices() throws IOException {
         String sqlQuery = readSqlScript("print_project_prices.sql");
         return executePrintProjectPrices(sqlQuery);
@@ -39,7 +40,7 @@ public class DatabaseQueryService {
     private List<MaxProjectCountClient> executeMaxProjectCountClientQuery(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
             return parseMaxProjectCountClients(resultSet);
         } catch (SQLException e) {
@@ -51,7 +52,7 @@ public class DatabaseQueryService {
     private List<MaxSalaryWorker> executeMaxSalaryWorkerQuery(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
             return parseMaxSalaryWorker(resultSet);
         } catch (SQLException e) {
@@ -63,7 +64,7 @@ public class DatabaseQueryService {
     private List<LongestProject> executeLongestProject(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
             return parseLongestProject(resultSet);
         } catch (SQLException e) {
@@ -75,7 +76,7 @@ public class DatabaseQueryService {
     private List<YoungestEldestWorker> executeYoungestEldestWorker(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
             return parseYoungestEldestWorker(resultSet);
         } catch (SQLException e) {
@@ -83,10 +84,11 @@ public class DatabaseQueryService {
         }
         return new ArrayList<>();
     }
+
     private List<PrintProjectPrices> executePrintProjectPrices(String sqlQuery) {
         try (Connection connection = Database.getInstance().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = preparedStatement.executeQuery(sqlQuery)) {
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
             return parsePrintProjectPrices(resultSet);
         } catch (SQLException e) {
@@ -134,6 +136,7 @@ public class DatabaseQueryService {
         }
         return youngestEldestWorker;
     }
+
     private List<PrintProjectPrices> parsePrintProjectPrices(ResultSet resultSet) throws SQLException {
         List<PrintProjectPrices> printProjectPrices = new ArrayList<>();
         while (resultSet.next()) {
